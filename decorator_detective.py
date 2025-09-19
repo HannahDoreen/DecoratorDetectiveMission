@@ -9,10 +9,10 @@ add(5,3)
 #decoratorfunction
 def Log_activity(func):
     @functools.wraps(func)
-    def wrapper(args,kwargs):
-        print(f"the arguments were: {args} and {kwargs}")
+    def wrapper(*args,**kwargs):
+        print("the arguments were: {*args} and {**kwargs}")
         print(f"Activity detected:calling {func.__name__}")# with args {args} and kwargs {kwargs}")
-        result = func(args,kwargs)
+        result = func(*args,**kwargs)
         print(f"The result of operation is: {result}")
         return result
     
